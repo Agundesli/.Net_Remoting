@@ -15,18 +15,17 @@ namespace Server
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            TcpChannel tcp = new TcpChannel(1000);
+            TcpChannel tcp = new TcpChannel(1001);
             ChannelServices.RegisterChannel(tcp);
-            
-            RemotingConfiguration.RegisterWellKnownServiceType(typeof(UzakNesne.Nesne), "AdSoyad", WellKnownObjectMode.SingleCall);
+
+            RemotingConfiguration.RegisterWellKnownServiceType(typeof(UzakNesne.Nesne), "IsimAl", WellKnownObjectMode.SingleCall);
+
+            RemotingConfiguration.RegisterWellKnownServiceType(typeof(UzakNesne.Nesne), "SoyisimAl", WellKnownObjectMode.SingleCall);
 
             RemotingConfiguration.RegisterWellKnownServiceType(typeof(UzakNesne.Nesne), "KucukHarf",
                 WellKnownObjectMode.SingleCall);
 
             RemotingConfiguration.RegisterWellKnownServiceType(typeof(UzakNesne.Nesne), "BuyukHarf",
-                WellKnownObjectMode.SingleCall);
-
-            RemotingConfiguration.RegisterWellKnownServiceType(typeof(UzakNesne.Nesne), "TersÇevir",
                 WellKnownObjectMode.SingleCall);
         }
     }

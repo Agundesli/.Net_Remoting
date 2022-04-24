@@ -8,7 +8,7 @@ namespace UzakNesne
 {
     public class Nesne:MarshalByRefObject
     {
-        public string AdSoyadVer()
+        public string IsimVer()
         {
             return "Abdullah Usame Gundesli";
         }
