@@ -14,20 +14,31 @@ namespace Client
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            nesne = Activator.GetObject(typeof(UzakNesne.Nesne), "tcp://localhost:1000/AdSoyad") as UzakNesne.Nesne;                                                           
-            nesne = Activator.GetObject(typeof(UzakNesne.Nesne), "tcp://192.168.1.223:1000/KucukHarf") as UzakNesne.Nesne;                                                        
-            nesne = Activator.GetObject(typeof(UzakNesne.Nesne), "tcp://192.168.1.223:1001/BuyukHarf") as UzakNesne.Nesne;                                                        
-            nesne = Activator.GetObject(typeof(UzakNesne.Nesne), "tcp://192.168.1.223:1000/TersCevir") as UzakNesne.Nesne;
+            nesne = Activator.GetObject(typeof(UzakNesne.Nesne), "tcp://192.168.1.9:1001/IsimAl") as UzakNesne.Nesne;
+            nesne = Activator.GetObject(typeof(UzakNesne.Nesne), "tcp://localhost:1001/SoyisimAl") as UzakNesne.Nesne;
+            nesne = Activator.GetObject(typeof(UzakNesne.Nesne), "tcp://localhost:1001/KucukHarf") as UzakNesne.Nesne;
+            nesne = Activator.GetObject(typeof(UzakNesne.Nesne), "tcp://localhost:1001/KucukHarf") as UzakNesne.Nesne;
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(nesne.IsimVer());
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             IslemSonucu.Text = nesne.KucukHarfCevir(AnaMetin.Text);
+            IslemSonucu.SelectionStart = IslemSonucu.Text.Length;
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(nesne.AdSoyadVer());
+            IslemSonucu.Text = nesne.BuyukHarfCevir(AnaMetin.Text);
+            IslemSonucu.SelectionStart = IslemSonucu.Text.Length;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            IslemSonucu.Text = nesne.TersCevir(AnaMetin.Text);
         }
     }
 }
