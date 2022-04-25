@@ -29,5 +29,11 @@ namespace UzakNesne
             }
             return strYeni;
         }
+        public Response IstekAlCevapDon(Request request)
+        {
+            Response response= new Response();
+            response.Result = Result.Basarili;
+            return response;
+        }
     }
 }
